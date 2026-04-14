@@ -1,0 +1,30 @@
+cff-version: 1.2.0
+message: "If you use this dataset or framework, please cite our survey paper."
+title: "Neuro-Symbolic AI for Cybersecurity: State of the Art, Challenges, and Opportunities"
+type: article
+authors:
+  - family-names: "Hakim"
+    given-names: "Safayat Bin"
+  - family-names: "Adil"
+    given-names: "Muhammad"
+  - family-names: "Velasquez"
+    given-names: "Alvaro"
+  - family-names: "Xu"
+    given-names: "Shouhuai"
+  - family-names: "Song"
+    given-names: "Houbing Herbert"
+date-released: 2025-09-10
+url: "https://arxiv.org/abs/2509.06921"
+repository-code: "https://github.com/safayat-bin-hakim/nesy-cybersecurity-survey"
+identifiers:
+  - type: other
+    value: "arXiv:2509.06921"
+    description: "Preprint"
+keywords:
+  - neuro-symbolic AI
+  - cybersecurity
+  - systematic literature review
+  - grounding-instructibility-alignment
+  - intrusion detection
+  - malware analysis
+license: MIT

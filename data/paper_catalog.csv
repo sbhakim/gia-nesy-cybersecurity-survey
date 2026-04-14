@@ -1,0 +1,104 @@
+id,citation_key,authors,year,tier,subtype,neural_component,symbolic_component,domain,venue_type
+A1,zhou2024knowgraph,"Zhou et al.",2024,A,Deep,"GNN (main + knowledge models)","Weighted FOL via probabilistic graphical model",Anomaly Detection,Conference
+A2,bizzarri2024synergistic,"Bizzarri et al.",2024,A,Deep,"DNN","Logic Tensor Networks (LTN)",Network IDS,Journal
+A3,bizzarri2024neuro,"Bizzarri et al.",2024,A,Deep,"Neural classifier","LTN with FOL axioms",Network IDS,Journal
+A4,grov2024neurosymbolic,"Grov et al.",2024,A,Deep,"Neural (feature extraction)","LTN + domain-specific logical rules",IDS (XSS),Conference
+A5,onchis2022neurosymbolic,"Onchis et al.",2022,A,Deep,"DNN","LTN with satisfiability optimization",Network IDS,Journal
+A6,tran2025neurosymbolic,"Tran et al.",2025,A,Deep,"Neural network","LTN with logical axioms",Network IDS,Conference
+A7,kalutharage2025neurosymbolic,"Kalutharage et al.",2025,A,Deep,"Anomaly detection model","KG (MITRE ATT&CK) + domain rules",IoT IDS,Journal
+A8,luo2024neurosymbolic,"Luo et al.",2024,A,Deep,"Neural RL agent","Symbolic program synthesis",General NeSy,Conference
+A9,kerr2024accelerating,"Kerr et al.",2024,A,Deep,"DQN","ARISTOTLE (PDDL planner)",Penetration Testing,Conference
+A10,lei2024adapt,"Lei et al.",2024,A,Deep,"Neural learning","Game-theoretic meta-game + symbolic KB",Penetration Testing,Conference
+A11,potteiger2024designing,"Potteiger et al.",2024,A,Deep,"Learning-enabled components","Behavior Trees (symbolic)",Autonomous Defense,Conference
+A12,samaddar2025ood,"Samaddar et al.",2025,A,Deep,"Neural OOD detector","Symbolic cyber-defense reasoning (EBT)",Autonomous Defense,Journal
+A13,li2025automated,"Li et al.",2025,A,Deep,"LLM (GPT-4)","CodeQL static analysis (formal symbolic)",Vulnerability Detection,Conference
+A14,li2025iris,"Li et al.",2025,A,Deep,"LLM (GPT-4)","CodeQL symbolic static analysis",Vulnerability Detection,Conference
+A15,xie2022neuro,"Xie et al.",2022,A,Deep,"Neural (target DNN)","Symbolic verification (formal logic)",DNN Verification,Journal
+A16,bizzarri2024openosr,"Bizzarri et al.",2024,A,Deep,"Neural classifier","LTN with open-set logic",Network IDS,Conference
+A17,bizzarri2025neurosymbolic,"Bizzarri et al.",2025,A,Deep,"Neural network","LTN framework",Network IDS,Journal
+A18,hallyburton2025neuroperc,"Hallyburton et al.",2025,A,Deep,"Object detection neural net","Scene Graph Generation (symbolic)",CPS Security,Conference
+A19,hakim2025ansrdt,"Hakim et al.",2025,A,Deep,"CNN-LSTM + PPO (RL)","Prolog-based symbolic reasoning",Digital Twin Security,Journal
+A20,tumkur2025neuro,"Tumkur et al.",2025,A,Deep,"Neural (adaptive learning)","Symbolic (policy logic)",Policy Enforcement,Journal
+A21,curaba2024cryptoformaleval,"Curaba et al.",2024,A,Deep,"LLM","Formal verification (symbolic)",Cryptographic Security,Conference
+A22,fathima2026neurosymbolic,"Fathima et al.",2026,A,Deep,"BERT (transformer)","LTN with 16 learnable predicates",APT Detection,Journal
+B1,piplai2020using,"Piplai et al.",2020,B,KG+Neural,"RL agent (CQL)","Cybersecurity KG",Malware,Conference
+B2,piplai2023knowledge,"Piplai et al.",2023,B,KG+Neural,"Neural network","CKG + rule engine",Malware/Network,Journal
+B3,chen2022aptkgl,"Chen et al.",2022,B,KG+Neural,"GNN (heterogeneous)","Open threat KB",APT Detection,Conference
+B4,falcarin2024building,"Falcarin et al.",2024,B,KG+Neural,"NER/relation extraction","Knowledge Graph",KG Construction,Journal
+B5,sikos2023cybersecurity,"Sikos",2023,B,KG+Neural,"Various neural","Ontology-based KGs",KG (Survey),Journal
+B6,ren2022cskg4apt,"Ren et al.",2022,B,KG+Neural,"NLP/entity extraction","CSKG (symbolic)",APT Attribution,Conference
+B7,zhao2024survey,"Zhao et al.",2024,B,KG+Neural,"Various neural (NER RE)","Knowledge Graphs",KG Construction,Journal
+B8,alharbi2025enhancing,"Alharbi et al.",2025,B,KG+Neural,"NLP models","Knowledge Graph",KG Construction,Journal
+B9,cheng2025crucialg,"Cheng et al.",2025,B,KG+Neural,"NLP extraction","Attack scenario graphs",Threat Intel,Conference
+B10,zhang2025improving,"Zhang et al.",2025,B,KG+Neural,"LLM + ML classifiers","Knowledge Graph",Threat Detection,Journal
+B11,liu2025graph,"Liu et al.",2025,B,KG+Neural,"GNN","Domain knowledge ontology",Threat Intel,Journal
+B12,gao2024threatkg,"Gao et al.",2024,B,KG+Neural,"NER + relation extraction","Knowledge Graph",Threat Intel,Conference
+B13,kurniawan2024cykg,"Kurniawan et al.",2024,B,KG+Neural,"LLM (RAG)","Cybersecurity KG",Threat Intel,Conference
+B14,fieblinger2024actionable,"Fieblinger et al.",2024,B,KG+Neural,"LLM","KG (CTI)",Threat Intel,Conference
+B15,cheng2025ctinexus,"Cheng et al.",2025,B,KG+Neural,"LLM","STIX ontology",Threat Intel,Conference
+B16,yan2023graph,"Yan et al.",2023,B,KG+Neural,"GNN","Threat intelligence graphs",Threat Intel,Journal
+B17,li2025multi,"Li et al.",2025,B,KG+Neural,"Deep learning (multi-view)","Knowledge Graph",IDS,Journal
+B18,belcastro2025enhancing,"Belcastro et al.",2025,B,KG+Neural,"Graph-BERT + LLM","KG + LIME",Network Security,Journal
+B19,nalluri2025nscti,"Nalluri et al.",2025,B,KG+Neural,"GNN + LSTM + HMM","Graph-based threat structure",CTI,Journal
+B20,kong2025vulnbot,"Kong et al.",2025,B,LLM+Symb,"LLM agents","Penetration Task Graph",Pentesting,Conference
+B21,huang2023penheal,"Huang et al.",2023,B,LLM+Symb,"LLM","Structured remediation planning",Pentesting,Conference
+B22,nieponice2025aracne,"Nieponice et al.",2025,B,LLM+Symb,"LLM","Shell grammar + symbolic reasoning",Pentesting,Conference
+B23,xiang2025guardagent,"Xiang et al.",2025,B,LLM+Symb,"LLM agents","Knowledge-based reasoning rules",LLM Safety,Conference
+B24,bashir2024resiliency,"Bashir et al.",2024,B,LLM+Symb,"AI planning","Resiliency Graph (symbolic)",Resilience,Conference
+B25,tsigkourakos2026qrs,"Tsigkourakos et al.",2026,B,LLM+Symb,"LLM agents (3 agents)","CodeQL (symbolic static analysis)",Vuln Discovery,Conference
+B26,jaimini2024causal,"Jaimini et al.",2024,B,Causal,"Neural models","Causal DAGs SCMs",Causal NeSy,Journal
+B27,andrew2022developing,"Andrew et al.",2022,B,Causal,"RL agents","Structural Causal Models",Cyber Defense,Conference
+B28,naidu2022can,"Naidu et al.",2022,B,Causal,"ML models","Counterfactual reasoning",Privacy/Threats,Conference
+B29,neupane2022explainable,"Neupane et al.",2022,B,XAI+Symb,"Various neural IDS","Symbolic explanation methods",IDS (Survey),Journal
+B30,sarker2024explainable,"Sarker et al.",2024,B,XAI+Symb,"Neural AI models","Symbolic reasoning for trust",Cybersecurity,Journal
+B31,nyre2022explainable,"Nyre-Yu et al.",2022,B,XAI+Symb,"Neural detection models","XAI tools with rule components",SOC Operations,Conference
+B32,yan2022explainablecybersec,"Yan et al.",2022,B,XAI+Symb,"Neural models","Symbolic/structured explanations",Cybersecurity,Journal
+B33,capuano2022explainable,"Capuano et al.",2022,B,XAI+Symb,"Neural AI","Symbolic explanation methods",XAI (Survey),Journal
+B34,arreche2024explainableids,"Arreche et al.",2024,B,XAI+Symb,"Neural IDS (7 models)","XAI rule-based explanations",Network IDS,Conference
+B35,mohale2025explaiids,"Mohale et al.",2025,B,XAI+Symb,"Neural classifier","Domain knowledge explanation",IDS,Journal
+B36,kalakoti2025explainable,"Kalakoti et al.",2025,B,XAI+Symb,"Neural models","Knowledge-driven explanation",Cybersecurity,Journal
+B37,eckhoff2025experimenting,"Eckhoff et al.",2025,B,XAI+Symb,"Neural + symbolic (LTN)","Symbolic rules/constraints",Cyber Defense,Conference
+B38,shreha2026neuro,"Shreha et al.",2026,B,XAI+Symb,"Neural (behavioral)","Symbolic (behavioral rules)",Explainable Cyber,Journal
+B39,hakim2025explainable,"Hakim et al.",2025,B,XAI+Symb,"Neural network","Symbolic rule extraction",Digital Twins,Journal
+B40,mankali2024insight,"Mankali et al.",2024,B,Ontology,"DL-based analysis","Symbolic circuit analysis rules",Hardware Security,Conference
+B41,tafreshian2024defensive,"Tafreshian et al.",2024,B,Adversarial,"ML classifiers","Formal constraint framework",Adversarial Defense,Conference
+B42,grini2025constrained,"Grini et al.",2025,B,Adversarial,"Neural attack generation","Constraint framework",Adversarial Attacks,Conference
+B43,jalaian2023neurosec,"Jalaian et al.",2023,B,Other,"Neural (pattern recog.)","Symbolic (reasoning)",IDS,Conference
+B44,almadhor2025designing,"Almadhor et al.",2025,B,Other,"CNN + ANN (dual)","Symbolic reasoning (claimed)",IoT IDS,Journal
+B45,deng2024pentestgpt,"Deng et al.",2024,B,Other,"GPT-4","Pentesting methodology (PTM)",Pentesting,Conference
+B46,wang2024sands,"Wang et al.",2024,B,Other,"LLM","Structured attack lifecycle",Attack Construction,Conference
+B47,blaauwbroek2024learning,"Blaauwbroek et al.",2024,B,Formal,"Neural heuristics","Automated theorem prover",Verification,Conference
+B48,blaauwbroek2024graph2tac,"Blaauwbroek et al.",2024,B,Formal,"GNN","Coq theorem prover",Verification,Conference
+B49,piepenbrock2023neural,"Piepenbrock et al.",2023,B,Formal,"Neural guidance","SMT solver",Verification,Conference
+B50,lu2023z3,"Lu et al.",2023,B,Formal,"Neural heuristics","Z3 SMT solver",Verification,Conference
+B51,alam2024ctibench,"Alam et al.",2024,B,Benchmark,"LLM","CTI benchmarks (structured)",CTI Evaluation,Conference
+B52,paul2024formal,"Paul et al.",2024,B,Formal,"Neural AI","Formal explanation frameworks",XAI,Conference
+B53,zhao2025letsmeasure,"Zhao et al.",2025,B,LLM+Symb,"Fine-tuned LLM","Deterministic logical reasoning",Privacy Analysis,Conference
+B54,kireev2023adversarial,"Kireev et al.",2023,B,Adversarial,"Neural models","Adversarial robustness theory",Robustness,Conference
+B55,bui2023generating,"Bui et al.",2023,B,Adversarial,"Neural generation","Adversarial constraint framework",Adversarial,Conference
+C1,fang2024teams,"Fang et al.",2024,C,Baseline,"LLM multi-agent (GPT-4)","None (pure LLM)",Zero-day Exploitation,Conference
+C2,xu2024autoattacker,"Xu et al.",2024,C,Baseline,"LLM","None (pure LLM)",Post-breach Automation,Conference
+C3,muzsai2024hacksynth,"Muzsai et al.",2024,C,Baseline,"LLM","None (pure LLM)",Exploit Generation,Conference
+C4,clairouxtrepanier2024llm,"Clairoix-Trepanier et al.",2024,C,Baseline,"LLM","None (pure LLM)",CTI/Cybercrime,Conference
+C5,guastalla2024llmddos,"Guastalla et al.",2024,C,Baseline,"LLM","None (pure LLM)",DDoS Detection,Conference
+C6,kasri2025vulnerability,"Kasri et al.",2025,C,Baseline,"LLM","None (survey)",LLM Cybersecurity Survey,Journal
+C7,challita2025redteamllm,"Challita et al.",2025,C,Baseline,"LLM","None (adversarial prompting)",Red-teaming LLMs,Conference
+C8,bougzime2025unlocking,"Bougzime et al.",2025,C,Baseline,"LLM","None (pure LLM)",LLM Capabilities,Journal
+C9,singh2024hierarchical,"Singh et al.",2024,C,Baseline,"Hierarchical MARL","None (pure RL)",Coalition Defense,Conference
+C10,hurten2024hierarchical,"Hurten et al.",2024,C,Baseline,"Hierarchical MARL","None (pure RL)",Coalition Defense,Conference
+C11,sajid2024enhancing,"Sajid et al.",2024,C,Baseline,"ML + DL ensemble","None (hybrid = ML+DL not NeSy)",IDS,Journal
+C12,faber2024lifelong,"Faber et al.",2024,C,Baseline,"Continual neural learning","None (purely neural)",IDS,Conference
+C13,bhatt2024cyberseceval,"Bhatt et al.",2024,C,Baseline,"LLM","None (evaluation benchmark)",LLM Security Eval,Conference
+C14,bhusal2024secure,"Bhusal et al.",2024,C,Baseline,"Neural","None (benchmark framework)",Security Benchmark,Conference
+C15,jing2024secbench,"Jing et al.",2024,C,Baseline,"Neural","None (benchmark)",Security Benchmark,Conference
+C16,rodriguez2025framework,"Rodriguez et al.",2025,C,Baseline,"AI agents","None (eval framework)",AI Attack Evaluation,Journal
+C17,ristea2024ai,"Ristea et al.",2024,C,Baseline,"AI","None (risk benchmark)",Risk Benchmark,Conference
+C18,rawal2025causality,"Rawal et al.",2025,C,Baseline,"Neural","None (causality survey)",Trustworthy AI Survey,Journal
+C19,xu2025l2m,"Xu et al.",2025,C,Baseline,"LLM + MARL","None (LLM as feature encoder)",Cyber Defense,Conference
+C20,Pawlicki2022NeuCom,"Pawlicki et al.",2022,C,Baseline,"Neural computing","None (purely neural)",Cybersecurity,Journal
+C21,Rosenberg2021AdversarialML,"Rosenberg et al.",2021,C,Baseline,"ML","None (adversarial ML survey)",Adversarial ML Survey,Journal
+C22,sarhan2023from,"Sarhan et al.",2023,C,Baseline,"Zero-shot ML","None (purely neural)",Cybersecurity,Conference
+C23,guo2023review,"Guo et al.",2023,C,Baseline,"ML","None (ML survey)",Zero-day Detection,Journal
+C24,Hitzler2020NeSySW,"Hitzler",2020,C,Baseline,"N/A","N/A (foundational NeSy text)",NeSy Background,Book
+C25,ferrag2025generative,"Ferrag et al.",2025,C,Baseline,"LLM","None (LLM survey)",GenAI Cybersecurity,Journal
+C26,zhang2025llm,"Zhang et al.",2025,C,Baseline,"LLM","None (LLM survey)",LLM Cybersecurity,Journal
