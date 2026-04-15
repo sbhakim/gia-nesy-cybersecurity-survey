@@ -53,7 +53,7 @@ The G-I-A scores included in this repository are author-assessed qualitative obs
 
 ## Data
 
-### Paper Catalog (`data/paper_catalog.csv`)
+### [Paper Catalog](data/paper_catalog.csv)
 
 Complete per-paper classification for all 103 surveyed publications:
 - **Citation key** and full reference
@@ -77,7 +77,7 @@ Schema:
 | `domain` | Primary cybersecurity application domain |
 | `venue_type` | Venue category (e.g., conference, journal, book) |
 
-### G-I-A Scores (`data/gia_scores.csv`)
+### [G-I-A Scores](data/gia_scores.csv)
 
 G-I-A framework assessment for representative systems from Table 2 of the paper, including methodology notes. Scores are author-assessed qualitative observations (1-5 scale) based on published system descriptions.
 
@@ -97,7 +97,7 @@ Schema:
 
 ## Supplementary Notebook
 
-The Jupyter notebook `notebooks/gia_framework_demo.ipynb` provides an illustrative walkthrough of:
+The Jupyter notebook [notebooks/gia_framework_demo.ipynb](notebooks/gia_framework_demo.ipynb) provides an illustrative walkthrough of:
 1. How each G-I-A dimension is conceptually defined
 2. A step-by-step scoring example for a hypothetical NeSy IDS
 3. Visualization of G-I-A profiles across systems
