@@ -110,9 +110,10 @@ def cross_tabulation(df: pd.DataFrame) -> pd.DataFrame:
 
 
 def generate_plots(df: pd.DataFrame) -> None:
-    """Generate and save analysis plots."""
+    """Generate and save an academic-style overview figure."""
     try:
         import matplotlib.pyplot as plt
+        from matplotlib.gridspec import GridSpec
         import numpy as np
     except ImportError:
         print("matplotlib/numpy not available; skipping plots.")
@@ -120,50 +121,175 @@ def generate_plots(df: pd.DataFrame) -> None:
 
     FIGURES_DIR.mkdir(exist_ok=True)
 
-    fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+    # --- Academic style ---
+    plt.rcParams.update({
+        "font.family": "serif",
+        "font.serif": ["DejaVu Serif", "Times New Roman", "Times"],
+        "font.size": 10,
+        "axes.titlesize": 11,
+        "axes.titleweight": "bold",
+        "axes.labelsize": 10,
+        "axes.edgecolor": "#333333",
+        "axes.linewidth": 0.8,
+        "axes.spines.top": False,
+        "axes.spines.right": False,
+        "xtick.labelsize": 9,
+        "ytick.labelsize": 9,
+        "legend.fontsize": 9,
+        "legend.frameon": False,
+        "figure.dpi": 150,
+    })
 
-    # 1. Tier distribution pie
+    tier_colors = {"A": "#2E8B57", "B": "#1F77B4", "C": "#808080"}
+    subtype_palette = ["#1F4E79", "#2E75B6", "#5B9BD5", "#8FAADC",
+                       "#A5A5A5", "#7F7F7F", "#C55A11", "#ED7D31", "#F4B183"]
+
+    fig = plt.figure(figsize=(15, 11.5), constrained_layout=False)
+    gs = GridSpec(3, 3, figure=fig, hspace=0.55, wspace=0.38,
+                  height_ratios=[0.38, 1.0, 1.0], left=0.06, right=0.97,
+                  top=0.95, bottom=0.06)
+
+    # ---- Header / summary banner ----
+    ax_hdr = fig.add_subplot(gs[0, :])
+    ax_hdr.axis("off")
+    n_total = len(df)
+    n_a = (df["tier"] == "A").sum()
+    n_b = (df["tier"] == "B").sum()
+    n_c = (df["tier"] == "C").sum()
+    year_min, year_max = df["year"].min(), df["year"].max()
+    n_domains = df["domain"].nunique()
+    n_venues = df["venue_type"].nunique()
+
+    ax_hdr.text(0.5, 0.92,
+                "Neuro-Symbolic AI for Cybersecurity — Corpus Overview",
+                ha="center", va="top", fontsize=16, fontweight="bold",
+                transform=ax_hdr.transAxes)
+    ax_hdr.text(0.5, 0.70,
+                f"Systematic Literature Review  ·  {n_total} Publications  ·  "
+                f"{year_min}–{year_max}  ·  {n_domains} Application Domains",
+                ha="center", va="top", fontsize=10.5, style="italic",
+                color="#555555", transform=ax_hdr.transAxes)
+
+    # Stat boxes
+    stat_items = [
+        ("Type A — Deep NeSy", n_a, tier_colors["A"]),
+        ("Type B — Structured NeSy", n_b, tier_colors["B"]),
+        ("Type C — Baselines", n_c, tier_colors["C"]),
+        ("Venue Types", n_venues, "#444444"),
+    ]
+    box_w = 0.18
+    gap = (1 - 4 * box_w) / 5
+    for i, (lbl, val, col) in enumerate(stat_items):
+        x = gap + i * (box_w + gap)
+        ax_hdr.add_patch(plt.Rectangle((x, 0.05), box_w, 0.42,
+                                        transform=ax_hdr.transAxes,
+                                        facecolor=col, alpha=0.12,
+                                        edgecolor=col, linewidth=1.2))
+        ax_hdr.text(x + box_w / 2, 0.38, lbl, ha="center", va="center",
+                    fontsize=8.5, color="#333333", transform=ax_hdr.transAxes)
+        ax_hdr.text(x + box_w / 2, 0.20, f"{val}", ha="center", va="center",
+                    fontsize=15, fontweight="bold", color=col,
+                    transform=ax_hdr.transAxes)
+
+    # ---- (A) Donut: tier distribution ----
+    ax1 = fig.add_subplot(gs[1, 0])
     tier_counts = df["tier"].value_counts().sort_index()
-    colors = ["#2E8B57", "#1F77B4", "#808080"]
-    labels = [f"Type {t}\n{TIER_NAMES[t]}\n({c})" for t, c in tier_counts.items()]
-    axes[0, 0].pie(tier_counts.values, labels=labels, colors=colors,
-                   autopct="%1.1f%%", startangle=90)
-    axes[0, 0].set_title("Integration Tier Distribution", fontweight="bold")
+    colors_ord = [tier_colors[t] for t in tier_counts.index]
+    wedges, _ = ax1.pie(tier_counts.values, colors=colors_ord,
+                        startangle=90, wedgeprops=dict(width=0.38,
+                                                       edgecolor="white",
+                                                       linewidth=2))
+    for w, t, c in zip(wedges, tier_counts.index, tier_counts.values):
+        ang = (w.theta2 + w.theta1) / 2
+        x = 0.78 * np.cos(np.deg2rad(ang))
+        y = 0.78 * np.sin(np.deg2rad(ang))
+        ax1.text(x, y, f"{c}\n({c/n_total*100:.0f}%)", ha="center",
+                 va="center", fontsize=9.5, fontweight="bold", color="white")
+    ax1.text(0, 0, f"N={n_total}", ha="center", va="center",
+             fontsize=13, fontweight="bold", color="#333333")
+    ax1.set_title("(a) Integration Tier Distribution", pad=10)
+    legend_labels = [f"Type {t}  {TIER_NAMES[t]}" for t in tier_counts.index]
+    ax1.legend(wedges, legend_labels, loc="center",
+               bbox_to_anchor=(0.5, -0.08), ncol=1, fontsize=8.5)
 
-    # 2. Papers by year (stacked by tier)
-    year_tier = pd.crosstab(df["year"], df["tier"])
-    year_tier = year_tier.reindex(columns=["A", "B", "C"], fill_value=0)
-    year_tier.plot.bar(stacked=True, ax=axes[0, 1], color=colors, alpha=0.85)
-    axes[0, 1].set_title("Papers by Year and Tier", fontweight="bold")
-    axes[0, 1].set_xlabel("Year")
-    axes[0, 1].set_ylabel("Number of Papers")
-    axes[0, 1].legend(title="Tier", labels=[TIER_NAMES[t] for t in ["A", "B", "C"]])
+    # ---- (B) Stacked bar: papers by year × tier ----
+    ax2 = fig.add_subplot(gs[1, 1:])
+    year_tier = pd.crosstab(df["year"], df["tier"]).reindex(
+        columns=["A", "B", "C"], fill_value=0)
+    bottoms = np.zeros(len(year_tier))
+    for tier in ["A", "B", "C"]:
+        vals = year_tier[tier].values
+        ax2.bar(year_tier.index.astype(str), vals, bottom=bottoms,
+                color=tier_colors[tier], edgecolor="white", linewidth=0.8,
+                label=f"Type {tier} — {TIER_NAMES[tier]}", width=0.72)
+        bottoms += vals
+    totals = year_tier.sum(axis=1).values
+    for i, tot in enumerate(totals):
+        ax2.text(i, tot + 0.6, f"{tot}", ha="center", va="bottom",
+                 fontsize=9, fontweight="bold", color="#333333")
+    ax2.set_title("(b) Publication Volume by Year and Integration Tier", pad=10)
+    ax2.set_xlabel("Year")
+    ax2.set_ylabel("Number of Publications")
+    ax2.set_ylim(0, max(totals) * 1.18)
+    ax2.grid(axis="y", linestyle=":", alpha=0.5, color="#999999")
+    ax2.set_axisbelow(True)
+    ax2.legend(loc="upper left", ncol=1, frameon=False)
 
-    # 3. Top domains
-    domain_counts = df["domain"].value_counts().head(10)
-    axes[1, 0].barh(range(len(domain_counts)), domain_counts.values,
-                    color="#1F77B4", alpha=0.8)
-    axes[1, 0].set_yticks(range(len(domain_counts)))
-    axes[1, 0].set_yticklabels(domain_counts.index)
-    axes[1, 0].set_xlabel("Number of Papers")
-    axes[1, 0].set_title("Top Application Domains", fontweight="bold")
-    axes[1, 0].invert_yaxis()
+    # ---- (C) Horizontal bar: top application domains ----
+    ax3 = fig.add_subplot(gs[2, :2])
+    dom_counts = df["domain"].value_counts().head(10).iloc[::-1]
+    # Compute dominant tier per domain for color hint
+    def dominant_tier(domain):
+        sub = df[df["domain"] == domain]
+        return sub["tier"].mode().iloc[0]
+    bar_colors = [tier_colors[dominant_tier(d)] for d in dom_counts.index]
+    bars = ax3.barh(range(len(dom_counts)), dom_counts.values,
+                    color=bar_colors, alpha=0.85, edgecolor="white",
+                    linewidth=0.8)
+    ax3.set_yticks(range(len(dom_counts)))
+    ax3.set_yticklabels(dom_counts.index)
+    for bar, v in zip(bars, dom_counts.values):
+        ax3.text(v + 0.12, bar.get_y() + bar.get_height() / 2, str(v),
+                 va="center", ha="left", fontsize=9, color="#333333")
+    ax3.set_title("(c) Top-10 Application Domains (colored by dominant tier)",
+                  pad=10)
+    ax3.set_xlabel("Number of Publications")
+    ax3.set_xlim(0, dom_counts.max() * 1.15)
+    ax3.grid(axis="x", linestyle=":", alpha=0.5, color="#999999")
+    ax3.set_axisbelow(True)
 
-    # 4. Type B subtype breakdown
+    # ---- (D) Type B subtype breakdown ----
+    ax4 = fig.add_subplot(gs[2, 2])
     type_b = df[df["tier"] == "B"]
     if not type_b.empty:
         sub_counts = type_b["subtype"].value_counts()
-        axes[1, 1].bar(range(len(sub_counts)), sub_counts.values,
-                       color="#1F77B4", alpha=0.8)
-        axes[1, 1].set_xticks(range(len(sub_counts)))
-        axes[1, 1].set_xticklabels(sub_counts.index, rotation=45, ha="right")
-        axes[1, 1].set_ylabel("Number of Papers")
-        axes[1, 1].set_title("Type B Subtypes", fontweight="bold")
+        pal = (subtype_palette * ((len(sub_counts) // len(subtype_palette)) + 1))[:len(sub_counts)]
+        bars = ax4.barh(range(len(sub_counts)), sub_counts.values,
+                        color=pal, edgecolor="white", linewidth=0.8, alpha=0.9)
+        ax4.set_yticks(range(len(sub_counts)))
+        ax4.set_yticklabels(sub_counts.index)
+        ax4.invert_yaxis()
+        for bar, v in zip(bars, sub_counts.values):
+            ax4.text(v + 0.1, bar.get_y() + bar.get_height() / 2, str(v),
+                     va="center", ha="left", fontsize=9, color="#333333")
+        ax4.set_title(f"(d) Type B Subtypes (N={len(type_b)})", pad=10)
+        ax4.set_xlabel("Number of Publications")
+        ax4.set_xlim(0, sub_counts.max() * 1.2)
+        ax4.grid(axis="x", linestyle=":", alpha=0.5, color="#999999")
+        ax4.set_axisbelow(True)
 
-    plt.tight_layout()
-    out_path = FIGURES_DIR / "catalog_analysis.png"
-    plt.savefig(out_path, dpi=200, bbox_inches="tight")
-    print(f"\nPlot saved to {out_path}")
+    # Footer / source note
+    fig.text(0.5, 0.015,
+             "Source: paper_catalog.csv  ·  Hakim et al. (2025), "
+             "arXiv:2509.06921  ·  Generated by scripts/catalog_analysis.py",
+             ha="center", va="bottom", fontsize=8, style="italic",
+             color="#666666")
+
+    out_png = FIGURES_DIR / "catalog_analysis.png"
+    out_pdf = FIGURES_DIR / "catalog_analysis.pdf"
+    plt.savefig(out_png, dpi=300, bbox_inches="tight", facecolor="white")
+    plt.savefig(out_pdf, bbox_inches="tight", facecolor="white")
+    print(f"\nPlot saved to {out_png} and {out_pdf}")
     plt.close()
 
 
