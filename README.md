@@ -1,12 +1,14 @@
 # Neuro-Symbolic AI for Cybersecurity: State of the Art, Challenges, and Opportunities
 
-**Supplementary Repository for the Survey Paper**
+**Supplementary Repository for the Paper** ([arXiv:2509.06921](https://arxiv.org/abs/2509.06921))
 
 ## Overview
 
-This repository accompanies the survey paper *Neuro-Symbolic AI for Cybersecurity: State of the Art, Challenges, and Opportunities*. It provides the structured supplementary materials underlying the paper's synthesis of **103 publications** spanning the neural-symbolic integration spectrum in cybersecurity (January 2019 -- March 2026), including the paper catalog, representative G-I-A assessments, and lightweight analysis utilities.
+This repository accompanies the paper *Neuro-Symbolic AI for Cybersecurity: State of the Art, Challenges, and Opportunities*. It brings together the structured supplementary materials supporting the paper's synthesis of **103 publications** across the neural-symbolic integration spectrum in cybersecurity, covering the period from January 2019 through April 2026. These materials include the curated paper catalog, representative G-I-A assessments, and lightweight analysis utilities intended to support closer inspection of the survey corpus and its classification.
 
-The repository is intended as a transparency and inspection artifact for readers of the paper. It is not presented as a full experimental reproduction package.
+The repository is intended as a supplementary scholarly artifact for readers of the paper. It is designed to improve transparency, traceability, and inspection of the underlying survey materials, rather than to serve as a full experimental reproduction package.
+
+![Publication trends and milestones across the NeSy cybersecurity survey corpus](figures/nesy_evolution.png)
 
 ## Scope
 
@@ -39,10 +41,12 @@ The G-I-A scores included in this repository are author-assessed qualitative obs
 ├── data/
 │   ├── paper_catalog.csv            # All 103 surveyed papers with classification
 │   └── gia_scores.csv               # G-I-A framework scores for representative systems
+├── figures/
+│   ├── nesy_evolution.png           # Publication trends and milestone overview from the paper
+│   ├── catalog_analysis.pdf         # Generated catalog analysis figure
+│   └── catalog_analysis.png         # Generated catalog analysis figure
 ├── notebooks/
 │   └── gia_framework_demo.ipynb     # Interactive G-I-A framework demonstration
-├── figures/
-│   └── (reproduction scripts for key figures)
 └── scripts/
     └── catalog_analysis.py          # Analysis utilities for the paper catalog
 ```
