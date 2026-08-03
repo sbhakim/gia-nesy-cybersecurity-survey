@@ -2,7 +2,7 @@
 """Analysis utilities for the NeSy Cybersecurity survey paper catalog.
 
 Provides summary statistics, cross-tabulations, and visualizations
-for the 103-paper corpus described in the survey.
+for the 107-paper corpus described in the survey.
 
 Usage:
     python catalog_analysis.py              # Print summary statistics

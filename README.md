@@ -4,7 +4,7 @@
 
 ## Overview
 
-This repository accompanies the paper *Neuro-Symbolic AI for Cybersecurity: State of the Art, Challenges, and Opportunities*. It brings together the structured supplementary materials supporting the paper's synthesis of **103 publications** across the neural-symbolic integration spectrum in cybersecurity, covering the period from January 2019 through April 2026. These materials include the curated paper catalog, representative G-I-A assessments, and lightweight analysis utilities intended to support closer inspection of the survey corpus and its classification.
+This repository accompanies the paper *Neuro-Symbolic AI for Cybersecurity: State of the Art, Challenges, and Opportunities*. It brings together the structured supplementary materials supporting the paper's synthesis of **107 publications** across the neural-symbolic integration spectrum in cybersecurity, covering the period from January 2019 through July 2026. These materials include the curated paper catalog, representative G-I-A assessments, and lightweight analysis utilities intended to support closer inspection of the survey corpus and its classification.
 
 The repository is intended as a supplementary scholarly artifact for readers of the paper. It is designed to improve transparency, traceability, and inspection of the underlying survey materials, rather than to serve as a full experimental reproduction package.
 
@@ -19,8 +19,8 @@ The survey adopts a three-tier taxonomy designed to make integration depth expli
 | Tier | Name | Papers | Description |
 |------|------|--------|-------------|
 | **Type A** | Deep NeSy | 22 | Joint optimization or deeply interleaved neural-symbolic training (e.g., LTN-based IDS, differentiable logic in GNNs) |
-| **Type B** | Structured NeSy | 55 | Meaningful interaction between neural and symbolic components (e.g., KG-guided learning, LLM + formal tools, causal-neural integration) |
-| **Type C** | Contextual Baselines | 26 | Pure neural/statistical systems included for comparative context |
+| **Type B** | Structured NeSy | 58 | Meaningful interaction between neural and symbolic components (e.g., KG-guided learning, LLM + formal tools, causal-neural integration) |
+| **Type C** | Contextual Baselines | 27 | Pure neural/statistical systems included for comparative context |
 
 ### G-I-A Framework
 
@@ -39,7 +39,7 @@ The G-I-A scores included in this repository are author-assessed qualitative obs
 ├── README.md                        # This file
 ├── CITATION.cff                     # Citation metadata
 ├── data/
-│   ├── paper_catalog.csv            # All 103 surveyed papers with classification
+│   ├── paper_catalog.csv            # All 107 surveyed papers with classification
 │   └── gia_scores.csv               # G-I-A framework scores for representative systems
 ├── figures/
 │   ├── nesy_evolution.png           # Publication trends and milestone overview from the paper
@@ -55,7 +55,7 @@ The G-I-A scores included in this repository are author-assessed qualitative obs
 
 ### [Paper Catalog](data/paper_catalog.csv)
 
-Complete per-paper classification for all 103 surveyed publications:
+Complete per-paper classification for all 107 surveyed publications:
 - **Citation key** and full reference
 - **Integration tier** (A/B/C) with subtype for Type B
 - **Neural component** description
@@ -66,7 +66,7 @@ Schema:
 
 | Column | Meaning |
 |--------|---------|
-| `id` | Stable survey identifier (`A1`--`A22`, `B1`--`B55`, `C1`--`C26`) |
+| `id` | Stable survey identifier (`A1`--`A22`, `B1`--`B58`, `C1`--`C27`) |
 | `citation_key` | BibTeX key aligned with the manuscript bibliography |
 | `authors` | Short-form author string |
 | `year` | Publication year |
