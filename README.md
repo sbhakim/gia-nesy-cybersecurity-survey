@@ -19,7 +19,7 @@ The survey adopts a three-tier taxonomy designed to make integration depth expli
 | Tier | Name | Papers | Description |
 |------|------|--------|-------------|
 | **Type A** | Deep NeSy | 22 | Joint optimization or deeply interleaved neural-symbolic training (e.g., LTN-based IDS, differentiable logic in GNNs) |
-| **Type B** | Structured NeSy | 58 | Meaningful interaction between neural and symbolic components (e.g., KG-guided learning, LLM + formal tools, causal-neural integration) |
+| **Type B** | Structured neural-symbolic systems | 58 | Meaningful interaction between neural and symbolic components (e.g., KG-guided learning, LLM + formal tools, causal-neural integration); distinct from strict end-to-end Type A integration |
 | **Type C** | Contextual Baselines | 27 | Pure neural/statistical systems included for comparative context |
 
 ### G-I-A Framework
@@ -30,7 +30,7 @@ The Grounding-Instructibility-Alignment (G-I-A) framework provides a structured 
 - **Instructibility (I):** How effectively the system responds to analyst feedback and guidance
 - **Alignment (A):** How consistently the system operates in accordance with organizational cybersecurity objectives
 
-The G-I-A scores included in this repository are author-assessed qualitative observations used for analytical illustration. They are not validated benchmark measurements or production scoring outputs.
+The G-I-A assessments included in this repository are author-assessed qualitative observations used for analytical illustration. They are not validated benchmark measurements, rankings, production scoring outputs, or numerical aggregates.
 
 ## Repository Structure
 
@@ -40,7 +40,9 @@ The G-I-A scores included in this repository are author-assessed qualitative obs
 ├── CITATION.cff                     # Citation metadata
 ├── data/
 │   ├── paper_catalog.csv            # All 107 surveyed papers with classification
-│   └── gia_scores.csv               # G-I-A framework scores for representative systems
+│   └── gia_scores.csv               # Qualitative G-I-A assessments for representative systems
+├── docs/
+│   └── review_protocol.md            # Search, selection, and classification protocol
 ├── figures/
 │   ├── nesy_evolution.png           # Publication trends and milestone overview from the paper
 │   ├── catalog_analysis.pdf         # Generated catalog analysis figure
@@ -52,6 +54,10 @@ The G-I-A scores included in this repository are author-assessed qualitative obs
 ```
 
 ## Data
+
+### [Review Protocol and Traceability Notes](docs/review_protocol.md)
+
+The review protocol records the search concept blocks, sources, selection stages, inclusion/exclusion criteria, double-coding checks, and Type A/B/C classification rule. It also explains the scope of the reproducibility artifact: the final catalog is fully inspectable, while intermediate proprietary-index result sets and individual exclusion logs are not redistributed.
 
 ### [Paper Catalog](data/paper_catalog.csv)
 
@@ -77,9 +83,9 @@ Schema:
 | `domain` | Primary cybersecurity application domain |
 | `venue_type` | Venue category (e.g., conference, journal, book) |
 
-### [G-I-A Scores](data/gia_scores.csv)
+### [G-I-A Qualitative Assessments](data/gia_scores.csv)
 
-G-I-A framework assessment for representative systems from Table 2 of the paper, including methodology notes. Scores are author-assessed qualitative observations (1-5 scale) based on published system descriptions.
+G-I-A framework assessment for representative systems from Table 2 of the paper, including methodology notes. Strong, Moderate, and Limited are author-assessed qualitative observations based on published system descriptions; they are not measured values or rankings.
 
 Schema:
 
@@ -88,9 +94,9 @@ Schema:
 | `system` | System name used in the manuscript |
 | `citation_key` | BibTeX key aligned with the manuscript bibliography |
 | `tier` | Integration tier (`A`, `B`, or `C`) |
-| `grounding` | Author-assessed grounding score (1-5) |
-| `instructibility` | Author-assessed instructibility score (1-5) |
-| `alignment` | Author-assessed alignment score (1-5) |
+| `grounding_assessment` | Author-assessed qualitative grounding assessment |
+| `instructibility_assessment` | Author-assessed qualitative instructibility assessment |
+| `alignment_assessment` | Author-assessed qualitative alignment assessment |
 | `key_metric` | Representative performance metric reported in the paper |
 | `metric_value` | Metric value as reported in the paper |
 | `notes` | Brief justification for the qualitative assessment |
@@ -106,9 +112,9 @@ This is a **conceptual demonstration**, not a validated scoring tool. See the pa
 
 ## Selected Findings
 
-- Multi-agent and structured-integration architectures often outperform single-agent approaches across diverse cybersecurity applications
-- Causal reasoning integration enables proactive defense beyond correlation-based detection
-- Knowledge-guided learning improves both data efficiency and explainability
+- In reviewed task-specific comparisons, some structured-integration and multi-agent systems report gains over selected single-agent baselines
+- Causal reasoning can support counterfactual defensive analysis beyond correlation-based detection
+- Knowledge-guided learning can support data efficiency and explainability in suitable task settings
 - Autonomous offensive systems in the broader survey corpus achieve notable zero-day exploitation success at significantly reduced cost, highlighting important dual-use implications for the field
 - Critical evaluation standardization gaps remain (0% coverage for causal reasoning, multi-agent testing)
 

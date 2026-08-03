@@ -1,7 +1,7 @@
-system,citation_key,tier,grounding,instructibility,alignment,key_metric,metric_value,notes
-KnowGraph,zhou2024knowgraph,A,4.2,3.1,3.8,Inductive AUC,91.2%,"High grounding through weighted FOL integration; moderate instructibility via rule modification; strong alignment through defensive focus"
-HPTSA,zhu2026teams,C,3.5,2.8,2.1,Zero-Day Success (pass@5),42%,"Type C baseline (non-NeSy); included for comparative illustration of G-I-A dimensions"
-VulnBot,kong2025vulnbot,B,3.8,3.5,4.1,Completion Rate,30.3%,"High alignment through defensive specialization; strong instructibility via task graph modification"
-H-MARL Defense,singh2024hierarchical,C,3.7,3.8,4.0,Recovery Precision,61%,"Type C baseline (non-NeSy); included for comparative illustration of G-I-A dimensions"
-LTN-IDS,grov2024neurosymbolic,A,4.0,3.4,3.9,XSS Precision,21.3%,"Strong grounding via LTN logical constraints; precision nearly doubled from 8.8% baseline"
-IoT NeSy,kalutharage2025neurosymbolic,A,4.1,3.6,4.2,Detection Accuracy + ATT&CK,97%,"Highest alignment score; 100% accurate ATT&CK technique mappings; strong explainability"
+system,citation_key,tier,grounding_assessment,instructibility_assessment,alignment_assessment,key_metric,metric_value,notes
+KnowGraph,zhou2024knowgraph,A,Strong,Moderate,Strong,Inductive AUC,91.2%,"Weighted FOL integration supports grounding; rule modification supports instructibility; defensive use supports alignment"
+HPTSA,zhu2026teams,C,Moderate,Limited,Limited,Zero-Day Success (pass@5),42%,"Type C baseline (non-NeSy); included only for comparative illustration of the G-I-A lens"
+VulnBot,kong2025vulnbot,B,Moderate,Moderate,Strong,Completion Rate,30.3%,"Task-graph modification supports instructibility; defensive specialization supports alignment"
+H-MARL Defense,singh2024hierarchical,C,Moderate,Moderate,Strong,Recovery Precision,61%,"Type C baseline (non-NeSy); included only for comparative illustration of the G-I-A lens"
+LTN-IDS,grov2024neurosymbolic,A,Strong,Moderate,Moderate,XSS Precision,21.3%,"LTN logical constraints support grounding; precision increase is a reported primary-study result"
+IoT NeSy,kalutharage2025neurosymbolic,A,Strong,Moderate,Strong,Detection Accuracy + ATT&CK,97%,"ATT&CK mapping supports grounding and alignment; primary-study accuracy is reported separately"

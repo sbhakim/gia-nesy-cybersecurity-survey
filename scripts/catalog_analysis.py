@@ -21,7 +21,7 @@ FIGURES_DIR = Path(__file__).resolve().parent.parent / "figures"
 
 TIER_NAMES = {
     "A": "Deep NeSy",
-    "B": "Structured NeSy",
+    "B": "Structured Neural-Symbolic Systems",
     "C": "Contextual Baselines",
 }
 
@@ -82,24 +82,20 @@ def print_summary(df: pd.DataFrame) -> None:
 
 
 def print_gia_summary(gia_df: pd.DataFrame) -> None:
-    """Print G-I-A score summary."""
+    """Print qualitative G-I-A assessment summaries."""
     print("\n" + "=" * 60)
-    print("G-I-A Framework Scores (from Table 2)")
+    print("G-I-A Framework Qualitative Assessments (from Table 2)")
     print("=" * 60)
 
     for _, row in gia_df.iterrows():
         print(f"\n  {row['system']} (Type {row['tier']})")
-        print(f"    G={row['grounding']:.1f}  I={row['instructibility']:.1f}  A={row['alignment']:.1f}")
+        print(
+            "    "
+            f"G={row['grounding_assessment']}  "
+            f"I={row['instructibility_assessment']}  "
+            f"A={row['alignment_assessment']}"
+        )
         print(f"    Key metric: {row['key_metric']} = {row['metric_value']}")
-
-    # Averages by tier
-    print("\n--- Average G-I-A by Tier ---")
-    for tier in sorted(gia_df["tier"].unique()):
-        subset = gia_df[gia_df["tier"] == tier]
-        g_avg = subset["grounding"].mean()
-        i_avg = subset["instructibility"].mean()
-        a_avg = subset["alignment"].mean()
-        print(f"  Type {tier}: G={g_avg:.2f}  I={i_avg:.2f}  A={a_avg:.2f}")
 
 
 def cross_tabulation(df: pd.DataFrame) -> pd.DataFrame:
@@ -173,7 +169,7 @@ def generate_plots(df: pd.DataFrame) -> None:
     # Stat boxes
     stat_items = [
         ("Type A — Deep NeSy", n_a, tier_colors["A"]),
-        ("Type B — Structured NeSy", n_b, tier_colors["B"]),
+        ("Type B — Structured Neural-Symbolic", n_b, tier_colors["B"]),
         ("Type C — Baselines", n_c, tier_colors["C"]),
         ("Venue Types", n_venues, "#444444"),
     ]
