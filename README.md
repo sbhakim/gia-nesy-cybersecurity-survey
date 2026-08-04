@@ -4,7 +4,7 @@
 
 ## Overview
 
-This repository accompanies the paper *Neuro-Symbolic AI for Cybersecurity: State of the Art, Challenges, and Opportunities*. It brings together the structured supplementary materials supporting the paper's synthesis of **107 publications** across the neural-symbolic integration spectrum in cybersecurity, covering the period from January 2019 through July 2026. These materials include the curated paper catalog, representative G-I-A assessments, and lightweight analysis utilities intended to support closer inspection of the survey corpus and its classification.
+This repository accompanies the paper *Neuro-Symbolic AI for Cybersecurity: State of the Art, Challenges, and Opportunities*. It brings together the structured supplementary materials supporting the paper's synthesis of **108 publications** across the neural-symbolic integration spectrum in cybersecurity, covering the period from January 2019 through July 2026. These materials include the curated paper catalog, representative G-I-A assessments, and lightweight analysis utilities intended to support closer inspection of the survey corpus and its classification.
 
 The repository is intended as a supplementary scholarly artifact for readers of the paper. It is designed to improve transparency, traceability, and inspection of the underlying survey materials, rather than to serve as a full experimental reproduction package.
 
@@ -19,12 +19,12 @@ The survey adopts a three-tier taxonomy designed to make integration depth expli
 | Tier | Name | Papers | Description |
 |------|------|--------|-------------|
 | **Type A** | Deep NeSy | 22 | Joint optimization or deeply interleaved neural-symbolic training (e.g., LTN-based IDS, differentiable logic in GNNs) |
-| **Type B** | Structured neural-symbolic systems | 58 | Meaningful interaction between neural and symbolic components (e.g., KG-guided learning, LLM + formal tools, causal-neural integration); distinct from strict end-to-end Type A integration |
+| **Type B** | Structured neural-symbolic systems | 59 | Meaningful interaction between neural and symbolic components (e.g., KG-guided learning, LLM + formal tools, causal-neural integration); distinct from strict end-to-end Type A integration |
 | **Type C** | Contextual Baselines | 27 | Pure neural/statistical systems included for comparative context |
 
-### G-I-A Framework
+### G-I-A Analytical Lens
 
-The Grounding-Instructibility-Alignment (G-I-A) framework provides a structured analytical lens for examining NeSy cybersecurity systems across three dimensions:
+The Grounding-Instructibility-Alignment (G-I-A) analytical lens supports structured examination of NeSy cybersecurity systems across three dimensions:
 
 - **Grounding (G):** How well the system establishes meaningful connections between outputs and cybersecurity concepts
 - **Instructibility (I):** How effectively the system responds to analyst feedback and guidance
@@ -38,17 +38,16 @@ The G-I-A assessments included in this repository are author-assessed qualitativ
 .
 ├── README.md                        # This file
 ├── CITATION.cff                     # Citation metadata
+├── requirements.txt                 # Python dependencies for utilities and notebook
 ├── data/
-│   ├── paper_catalog.csv            # All 107 surveyed papers with classification
+│   ├── paper_catalog.csv            # All 108 surveyed papers with classification
 │   └── gia_scores.csv               # Qualitative G-I-A assessments for representative systems
 ├── docs/
 │   └── review_protocol.md            # Search, selection, and classification protocol
 ├── figures/
-│   ├── nesy_evolution.png           # Publication trends and milestone overview from the paper
-│   ├── catalog_analysis.pdf         # Generated catalog analysis figure
-│   └── catalog_analysis.png         # Generated catalog analysis figure
+│   └── nesy_evolution.png           # Publication trends and milestone overview from the paper
 ├── notebooks/
-│   └── gia_framework_demo.ipynb     # Interactive G-I-A framework demonstration
+│   └── gia_framework_demo.ipynb     # Qualitative G-I-A analytical-lens walkthrough
 └── scripts/
     └── catalog_analysis.py          # Analysis utilities for the paper catalog
 ```
@@ -57,11 +56,11 @@ The G-I-A assessments included in this repository are author-assessed qualitativ
 
 ### [Review Protocol and Traceability Notes](docs/review_protocol.md)
 
-The review protocol records the search concept blocks, sources, selection stages, inclusion/exclusion criteria, double-coding checks, and Type A/B/C classification rule. It also explains the scope of the reproducibility artifact: the final catalog is fully inspectable, while intermediate proprietary-index result sets and individual exclusion logs are not redistributed.
+The review protocol records the search concept blocks, sources, selection stages, inclusion/exclusion criteria, double-coding checks, and Type A/B/C classification rule. It also explains the scope of the supplementary artifact: the final catalog is fully inspectable, while intermediate proprietary-index result sets and individual exclusion logs are not redistributed.
 
 ### [Paper Catalog](data/paper_catalog.csv)
 
-Complete per-paper classification for all 107 surveyed publications:
+Complete per-paper classification for all 108 surveyed publications:
 - **Citation key** and full reference
 - **Integration tier** (A/B/C) with subtype for Type B
 - **Neural component** description
@@ -72,7 +71,7 @@ Schema:
 
 | Column | Meaning |
 |--------|---------|
-| `id` | Stable survey identifier (`A1`--`A22`, `B1`--`B58`, `C1`--`C27`) |
+| `id` | Stable survey identifier (`A1`--`A22`, `B1`--`B59`, `C1`--`C27`) |
 | `citation_key` | BibTeX key aligned with the manuscript bibliography |
 | `authors` | Short-form author string |
 | `year` | Publication year |
@@ -85,7 +84,7 @@ Schema:
 
 ### [G-I-A Qualitative Assessments](data/gia_scores.csv)
 
-G-I-A framework assessment for representative systems from Table 2 of the paper, including methodology notes. Strong, Moderate, and Limited are author-assessed qualitative observations based on published system descriptions; they are not measured values or rankings.
+G-I-A analytical-lens assessments for representative systems from Table 2 of the paper, including methodology notes. Strong, Moderate, and Limited are author-assessed qualitative observations based on published system descriptions; they are not measured values or rankings.
 
 Schema:
 
@@ -105,10 +104,23 @@ Schema:
 
 The Jupyter notebook [notebooks/gia_framework_demo.ipynb](notebooks/gia_framework_demo.ipynb) provides an illustrative walkthrough of:
 1. How each G-I-A dimension is conceptually defined
-2. A step-by-step scoring example for a hypothetical NeSy IDS
-3. Visualization of G-I-A profiles across systems
+2. How a qualitative assessment record can document supporting evidence
+3. How the representative categorical assessments in Table 2 can be inspected
 
-This is a **conceptual demonstration**, not a validated scoring tool. See the paper for detailed discussion of G-I-A's role as an analytical framework.
+The notebook does not compute numerical G-I-A scores, rank systems, or estimate tier-level effects. See the paper for detailed discussion of G-I-A's role as an analytical lens.
+
+## Running the Utilities
+
+From the repository root:
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python scripts/catalog_analysis.py
+```
+
+Use `--plot` to generate a local corpus-overview figure and `--export` to generate local summary CSVs. These derived outputs are intentionally ignored by Git because they can be recreated from `data/paper_catalog.csv`.
 
 ## Selected Findings
 

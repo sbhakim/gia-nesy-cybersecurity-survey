@@ -6,11 +6,11 @@ This document records the selection protocol used for the accompanying survey. I
 
 - **Publication window:** January 2019 through July 2026.
 - **Topic:** cybersecurity studies with identifiable neural and symbolic components, plus a limited set of contextual baselines.
-- **Final catalog:** 107 publications: 22 Type A, 58 Type B, and 27 Type C entries.
+- **Final catalog:** 108 publications: 22 Type A, 59 Type B, and 27 Type C entries.
 
 ## Search sources and concept blocks
 
-The review searched IEEE Xplore, ACM Digital Library, SpringerLink, ScienceDirect, arXiv, Scopus, Web of Science, and specialist venues including NeSy, NeuS, S&P, CCS, USENIX Security, NDSS, NeurIPS, ICML, AAAI, and ICLR. Google Scholar was used only for supplementary citation backfilling.
+The review searched IEEE Xplore, ACM Digital Library, SpringerLink, ScienceDirect, arXiv, Scopus, Web of Science, and specialist venues including NeSy, NeuS, S&P, IEEE EuroS&P, CCS, USENIX Security, NDSS, NeurIPS, ICML, AAAI, IJCAI, ICLR, KDD, and ISWC. Google Scholar was used only for supplementary citation backfilling.
 
 Searches combined a neural-symbolic block with a cybersecurity-domain block and, where useful, a focused technical block:
 
@@ -28,10 +28,12 @@ Focused searches additionally used terms such as `knowledge graph`, `explainable
 
 | Stage | Records | Procedure |
 |---|---:|---|
-| Initial title/abstract screening | 352 | Potential neural-symbolic cybersecurity applications identified |
-| Deduplication | 250 | 102 records removed using DOI and title-year matching |
-| Full-text review | 193 | Inclusion/exclusion criteria applied |
-| Quality assessment | 107 | Research rigor, methodological soundness, and practical significance assessed |
+| Records identified | 353 | Potential neural-symbolic cybersecurity applications retrieved from the specified sources |
+| After deduplication | 251 | 102 records removed using DOI and title-year matching |
+| Eligibility screening | 194 | Titles, abstracts, and full texts screened against the stated criteria |
+| Final classification | 108 | Reporting completeness, technical detail, cybersecurity relevance, and taxonomy suitability assessed |
+
+A focused supplementary citation-backfill search identified Pingle et al.'s 2019 RelExt study. Full-text reassessment under the same criteria classified it as Type B because UCO/STIX schema constraints shape neural relation extraction and the predicted relations populate a cybersecurity knowledge graph.
 
 Included studies are peer-reviewed or established preprints that apply identifiable neural and symbolic components to cybersecurity and provide sufficient technical detail for classification. Excluded studies are general AI/ML papers, systems without cross-paradigm interaction, and position papers or abstracts lacking an empirical or architectural contribution. Pure neural or symbolic systems relevant for comparison are retained only as Type C contextual baselines.
 

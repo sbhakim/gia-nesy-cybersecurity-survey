@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this dataset or framework, please cite our survey paper."
+message: "If you use these supplementary materials or the G-I-A analytical lens, please cite our survey paper."
 title: "Neuro-Symbolic AI for Cybersecurity: State of the Art, Challenges, and Opportunities"
 type: article
 authors:
@@ -15,7 +15,7 @@ authors:
     given-names: "Houbing Herbert"
 date-released: 2025-09-10
 url: "https://arxiv.org/abs/2509.06921"
-repository-code: "https://github.com/safayat-bin-hakim/nesy-cybersecurity-survey"
+repository-code: "https://github.com/sbhakim/gia-nesy-cybersecurity-survey"
 identifiers:
   - type: other
     value: "arXiv:2509.06921"

@@ -2,7 +2,7 @@
 """Analysis utilities for the NeSy Cybersecurity survey paper catalog.
 
 Provides summary statistics, cross-tabulations, and visualizations
-for the 107-paper corpus described in the survey.
+for the 108-paper corpus described in the survey.
 
 Usage:
     python catalog_analysis.py              # Print summary statistics
@@ -34,11 +34,11 @@ def load_catalog() -> pd.DataFrame:
     return pd.read_csv(path)
 
 
-def load_gia_scores() -> pd.DataFrame:
-    """Load and return the G-I-A scores DataFrame."""
+def load_gia_assessments() -> pd.DataFrame:
+    """Load and return the qualitative G-I-A assessments DataFrame."""
     path = DATA_DIR / "gia_scores.csv"
     if not path.exists():
-        sys.exit(f"Error: G-I-A scores not found at {path}")
+        sys.exit(f"Error: G-I-A assessments not found at {path}")
     return pd.read_csv(path)
 
 
@@ -84,7 +84,7 @@ def print_summary(df: pd.DataFrame) -> None:
 def print_gia_summary(gia_df: pd.DataFrame) -> None:
     """Print qualitative G-I-A assessment summaries."""
     print("\n" + "=" * 60)
-    print("G-I-A Framework Qualitative Assessments (from Table 2)")
+    print("G-I-A Analytical-Lens Qualitative Assessments (from Table 2)")
     print("=" * 60)
 
     for _, row in gia_df.iterrows():
@@ -321,7 +321,7 @@ def main():
     df = load_catalog()
     print_summary(df)
 
-    gia_df = load_gia_scores()
+    gia_df = load_gia_assessments()
     print_gia_summary(gia_df)
 
     if args.plot:
