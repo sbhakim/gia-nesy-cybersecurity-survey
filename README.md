@@ -153,7 +153,7 @@ If you find this work useful, please cite:
 ```bibtex
 @article{hakim2025neuro,
   title={Neuro-symbolic ai for cybersecurity: State of the art, challenges, and opportunities},
-  author={Hakim, Safayat Bin and Adil, Muhammad and Velasquez, Alvaro and Xu, Shouhuai and Song, Houbing Herbert},
+  author={Hakim, Safayat Bin and Adil, Muhammad and Velasquez, Alvaro and Xu, Shouhuai and Song, Houbing},
   journal={arXiv preprint arXiv:2509.06921},
   year={2025}
 }
